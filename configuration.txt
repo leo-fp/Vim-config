@@ -1,0 +1,8 @@
+set nu				//显示行号
+set cindent			//c/c++风格缩进
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {<CR>}<ESC>O		//花括号自动补全及缩进
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+
