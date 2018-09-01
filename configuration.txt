@@ -6,3 +6,47 @@ inoremap { {<CR>}<ESC>O		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 set hlsearch			"高亮显示所查关键字符"
+
+"括号自动删除"
+function! RemovePairs()
+	let l:line = getline(".")
+	let l:previous_char = l:line[col(".")-1]
+	if index(["(","[","{"],l:previous_char) != -1
+		let l:original_pos = getpos(".")
+		execute "normal %"
+		let l:new_pos = getpos(".")
+
+		if l:original_pos == l:new_pos
+			execute "normal! a\<BS>"
+			return
+		end
+		let l:line2 = getline(".")
+		if len(l:line2) == col(".")
+			execute "normal! v%xa"
+		else 
+			execute "normal! v%xi"
+		end
+	else
+		execute "normal! a\<BS>"
+	end
+endfunction
+
+inoremap <BS> <ESC>:call RemovePairs()<CR>a
+
+"忽略多余右括号"
+function! RemoveNextDoubleChar(char)
+	let l:line = getline(".")
+	let l:next_char = l:line[col(".")] "
+	if a:char == l:next_char
+		execute "normal! l"
+	else
+		execute "normal! i" . a:char . "" 
+	end
+endfunction
+
+inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
+inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
+inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
+
+
+
