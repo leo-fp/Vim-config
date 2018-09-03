@@ -6,6 +6,7 @@ inoremap { {<CR>}<ESC>O		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 set hlsearch			"高亮显示所查关键字符"
+set mouse=a			"Enable mouse usage (all modes)"
 
 "括号自动删除"
 function! RemovePairs()
