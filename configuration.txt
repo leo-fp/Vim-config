@@ -1,10 +1,22 @@
 set nu				"显示行号"
-set cindent			"c/c++风格缩进"
+"自适应不同语言的智能缩进"
+filetype indent on 
+set expandtab	"将制表符扩展为空格"
+set tabstop=4	"设置编辑时制表符占用空格数"
+set shiftwidth=4	"设置格式化时制表符占用空格数"
+set softtabstop=4   "让vim把连续数量的空格视为一个制表符"
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {<CR>}<ESC>O		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
+"基于缩进或语法进行代码折叠"
+set foldmethod=indent   
+set foldmethod=syntax
+"启动vim时关闭折叠代码"
+set nofoldenable
+"禁止光标闪烁"
+set gcr=a:block-blinkon0
 set hlsearch			"高亮显示所查关键字符"
 set mouse=a			"Enable mouse usage (all modes)"
 
