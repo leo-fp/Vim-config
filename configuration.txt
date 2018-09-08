@@ -20,6 +20,7 @@ set gcr=a:block-blinkon0
 set hlsearch			"高亮显示所查关键字符"
 set mouse=a			"Enable mouse usage (all modes)"
 
+
 "括号自动删除"
 function! RemovePairs()
 	let l:line = getline(".")
@@ -45,6 +46,7 @@ function! RemovePairs()
 endfunction
 
 inoremap <BS> <ESC>:call RemovePairs()<CR>a
+
 
 "忽略多余右括号"
 function! RemoveNextDoubleChar(char)
