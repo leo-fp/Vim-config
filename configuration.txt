@@ -63,5 +63,20 @@ inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
 inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
 inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
 
+#安装markdown插件
+set nocompatible    
+filetype off
 
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
+Plugin 'vundleVim/vundle.vim'
+
+Plugin 'godlygeek/tabular'
+
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'suan/vim-instant-markdown'
+
+call vundle#end()
+filetype plugin indent on
