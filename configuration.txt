@@ -78,5 +78,9 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
 
+#快速开关注释
+Plugin 'scrooloose/nerdcommenter'
+
+
 call vundle#end()
 filetype plugin indent on
