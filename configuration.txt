@@ -65,7 +65,6 @@ inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
 
 #安装markdown插件
 set nocompatible    
-filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -84,3 +83,8 @@ Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
+filetype plugin on
+
+"默认八进制"
+set nrformats=
+
