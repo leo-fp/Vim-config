@@ -90,3 +90,10 @@ set nrformats=
 
 "保存文件自动执行ctags"
 audocmd BufWritePost * call system("ctags -R")
+
+"在执行查找前预览第一处匹配"
+set incsearch
+
+"Automatically save before commands like :next and :make
+set autowrite
+
