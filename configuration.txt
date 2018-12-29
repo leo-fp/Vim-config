@@ -88,3 +88,5 @@ filetype plugin on
 "默认八进制"
 set nrformats=
 
+"保存文件自动执行ctags"
+audocmd BufWritePost * call system("ctags -R")
