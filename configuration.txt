@@ -97,5 +97,12 @@ set incsearch
 "Automatically save before commands like :next and :make
 set autowrite
 
-"status line shown as the second line"
-set laststatus=2
+"statusline"
+set statusline=
+set statusline+= %7*\[%n]   "buffernr"
+set statusline+=%1*\ %<%F\  "file lacation"
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\   "cur line / total line(xx%)"
+set laststatus=2    "status line shown as the second line"
+
+"color"
+colorscheme solarized
