@@ -109,3 +109,12 @@ colorscheme solarized
 
 "foldmethod"
 set fdm=marker
+
+"templates VIMHOME is as deep as vimrc
+autocmd BufNewFile * silent! 0r ./VIMHOME/templates/%:e.tpl
+"<c-j> fix the next position"
+nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
+nnoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
+"highlight the placeholder"
+match Todo /<+.\++>/
+
