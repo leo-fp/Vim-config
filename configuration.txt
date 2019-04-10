@@ -118,3 +118,5 @@ nnoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 "highlight the placeholder"
 match Todo /<+.\++>/
 
+"fori"
+iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
