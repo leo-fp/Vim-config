@@ -7,7 +7,7 @@ set shiftwidth=4	"设置格式化时制表符占用空格数"
 set softtabstop=4   "让vim把连续数量的空格视为一个制表符"
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
-inoremap { {<CR>}<ESC>O		"花括号自动补全及缩进"
+inoremap { {<CR>}<ESC>		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 "基于缩进或语法进行代码折叠"
