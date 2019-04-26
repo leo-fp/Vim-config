@@ -121,7 +121,7 @@ match Todo /<+.\++>/
 "fori"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
 
-"to map Caps Lock to ESC and avoid working outside of vim. Btw, this require Linux with the xorg-xodmap package installed"
+"to map Caps Lock to ESC and avoid working outside of vim. Btw, this require Linux with the xorg-xmodmap package installed"
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
