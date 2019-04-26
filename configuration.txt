@@ -120,3 +120,8 @@ match Todo /<+.\++>/
 
 "fori"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
+
+"to map Caps Lock to ESC and avoid working outside of vim"
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
