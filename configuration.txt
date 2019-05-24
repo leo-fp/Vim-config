@@ -1,24 +1,35 @@
 set nu				"显示行号"
-"自适应不同语言的智能缩进"
-filetype indent on 
+filetype indent on  "自适应不同语言的智能缩进"
 set expandtab	"将制表符扩展为空格"
 set tabstop=4	"设置编辑时制表符占用空格数"
 set shiftwidth=4	"设置格式化时制表符占用空格数"
 set softtabstop=4   "让vim把连续数量的空格视为一个制表符"
+set foldmethod=indent   "基于缩进或语法进行代码折叠"
+set foldmethod=syntax
+set nofoldenable     "启动vim时关闭折叠代码"
+set gcr=a:block-blinkon0     "禁止光标闪烁"
+set hlsearch			"高亮显示所查关键字符"
+set mouse=a			"Enable mouse usage (all modes)"
+set showcmd        " Show (partial) command in status line.
+set encoding=utf-8
+set nrformats=   "默认八进制"
+set incsearch    "在执行查找前预览第一处匹配"
+set autowrite    "Automatically save before commands like :next and :make
+set fdm=marker   "foldmethod"
+""
+"statusline"
+""
+set statusline=
+set statusline+= %7*\[%n]   "buffernr"
+set statusline+=%1*\ %<%F\  "file lacation"
+set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\   "cur line / total line(xx%)"
+set laststatus=2    "status line shown as the second line"
+
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
 inoremap { {<CR>}<ESC>		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
-"基于缩进或语法进行代码折叠"
-set foldmethod=indent   
-set foldmethod=syntax
-"启动vim时关闭折叠代码"
-set nofoldenable
-"禁止光标闪烁"
-set gcr=a:block-blinkon0
-set hlsearch			"高亮显示所查关键字符"
-set mouse=a			"Enable mouse usage (all modes)"
 
 
 "括号自动删除"
@@ -44,7 +55,6 @@ function! RemovePairs()
 		execute "normal! a\<BS>"
 	end
 endfunction
-
 inoremap <BS> <ESC>:call RemovePairs()<CR>a
 
 
@@ -85,33 +95,32 @@ call vundle#end()
 filetype plugin indent on
 filetype plugin on
 
-"默认八进制"
-set nrformats=
 
 "保存文件自动执行ctags"
 "audocmd BufWritePost * call system("ctags -R")
 
-"在执行查找前预览第一处匹配"
-set incsearch
-
-"Automatically save before commands like :next and :make
-set autowrite
-
-"statusline"
-set statusline=
-set statusline+= %7*\[%n]   "buffernr"
-set statusline+=%1*\ %<%F\  "file lacation"
-set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\   "cur line / total line(xx%)"
-set laststatus=2    "status line shown as the second line"
-
 "color"
 colorscheme solarized
 
-"foldmethod"
-set fdm=marker
 
 "templates VIMHOME is as deep as vimrc
 autocmd BufNewFile * silent! 0r ./VIMHOME/templates/%:e.tpl
+
+
+"load model
+"param: tplmd directory of templates"
+"       tpln  the type of file working on
+"       fn    certificate file will be load
+"return: null
+"23:27 23-May-19 by leo
+let b:tplmd = "/etc/vim/VIMHOME/templates"
+let b:tpln = "/CPP/"
+function Load(fn) 
+    let b:absolutePath = b:tplmd.b:tpln.a:fn.".tpl"
+    exe "r ".b:absolutePath
+endfunction
+
+
 "<c-j> fix the next position"
 nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
 nnoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
@@ -120,8 +129,4 @@ match Todo /<+.\++>/
 
 "fori"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
-
-"to map Caps Lock to ESC and avoid working outside of vim. Btw, this require Linux with the xorg-xmodmap package installed"
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
