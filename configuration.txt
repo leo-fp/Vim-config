@@ -113,10 +113,10 @@ autocmd BufNewFile * silent! 0r ./VIMHOME/templates/%:e.tpl
 "       fn    certificate file will be load
 "return: null
 "23:27 23-May-19 by leo
-let b:tplmd = "/etc/vim/VIMHOME/templates"
-let b:tpln = "/CPP/"
+let b:tplmd = "/etc/vim/VIMHOME/templates/"
+let b:tpln = "CPP"
 function Load(fn) 
-    let b:absolutePath = b:tplmd.b:tpln.a:fn.".tpl"
+    let b:absolutePath = b:tplmd.b:tpln."/".a:fn.".tpl"
     exe "r ".b:absolutePath
 endfunction
 
