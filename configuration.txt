@@ -117,7 +117,7 @@ let b:tplmd = "/etc/vim/VIMHOME/templates/"
 let b:tpln = "CPP"
 function Load(fn) 
     let b:absolutePath = b:tplmd.b:tpln."/".a:fn.".tpl"
-    exe "r ".b:absolutePath
+    exe "-1r ".b:absolutePath
 endfunction
 
 
