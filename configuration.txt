@@ -115,7 +115,7 @@ autocmd BufNewFile * silent! 0r ./VIMHOME/templates/%:e.tpl
 "load model
 "param: tplmd directory of templates"
 "       tpln  the type of file working on
-"       fn    certificate file will be load
+"       fn    specific file that will be loaded
 "return: null
 "23:27 23-May-19 by leo
 let b:tplmd = "/etc/vim/VIMHOME/templates/"
