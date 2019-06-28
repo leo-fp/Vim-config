@@ -30,6 +30,11 @@ inoremap [ []<ESC>i
 inoremap { {<CR>}<ESC>		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
+nmap <C-\>g :cs find g <C-R>=expand("")<CR> 
+nmap <C-\>s :cs find s <C-R>=expand("")<CR> 
+nmap <C-\>t :cs find t <C-R>=expand("")<CR> 
+nmap <C-\>d :cs find d <C-R>=expand("")<CR> 
+nmap <C-\>f :cs find f <C-R>=expand("")<CR> 
 
 "command for loading"
 command Filter call Load("Filter")
@@ -134,4 +139,3 @@ match Todo /<+.\++>/
 
 "fori"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
-
