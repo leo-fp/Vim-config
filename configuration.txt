@@ -28,6 +28,13 @@ set cursorline      "hightlight line"
 set cursorcolumn    "hightlight column"
 highlight CursorLine cterm=NONE ctermgb=NONE ctermfg=NONE guibg=#073642 guifg=NONE      "line style"
 highlight CursorColumn cterm=NONE ctermgb=NONE ctermfg=NONE guibg=#073642 guifg=NONE    "column style"
+set guioptions-=m   "cancel the buttom"
+set guioptions-=T   "cancel the top"
+"cancel scroll bar"
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
 
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
