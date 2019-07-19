@@ -25,6 +25,9 @@ set statusline+=%1*\ %<%F\  "file lacation"
 set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\   "cur line / total line(xx%)"
 set laststatus=2    "status line shown as the second line"
 set cursorline      "hightlight line"
+set cursorcolumn    "hightlight column"
+highlight CursorLine cterm=NONE ctermgb=NONE ctermfg=NONE guibg=#073642 guifg=NONE      "line style"
+highlight CursorColumn cterm=NONE ctermgb=NONE ctermfg=NONE guibg=#073642 guifg=NONE    "column style"
 
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
