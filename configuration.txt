@@ -109,6 +109,8 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
 
+
+
 #快速开关注释
 Plugin 'scrooloose/nerdcommenter'
 
@@ -149,5 +151,7 @@ nnoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 "highlight the placeholder"
 match Todo /<+.\++>/
 
-"fori"
+"abbrev"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
+iabbrev <buffer> /* /**/<ESC>hi
+
