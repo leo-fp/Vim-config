@@ -4,8 +4,9 @@ set expandtab	"将制表符扩展为空格"
 set tabstop=4	"设置编辑时制表符占用空格数"
 set shiftwidth=4	"设置格式化时制表符占用空格数"
 set softtabstop=4   "让vim把连续数量的空格视为一个制表符"
-set foldmethod=indent   "基于缩进或语法进行代码折叠"
-set foldmethod=syntax
+"set foldmethod=indent   "基于缩进或语法进行代码折叠"
+"set foldmethod=syntax
+"set foldmethod=marker
 set nofoldenable     "启动vim时关闭折叠代码"
 set gcr=a:block-blinkon0     "禁止光标闪烁"
 set hlsearch			"高亮显示所查关键字符"
