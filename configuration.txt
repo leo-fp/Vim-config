@@ -36,6 +36,7 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
+let mapleader = ","
 
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
@@ -156,4 +157,5 @@ match Todo /<+.\++>/
 "abbrev"
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
 iabbrev <buffer> /* /**/<ESC>hi
+
 
