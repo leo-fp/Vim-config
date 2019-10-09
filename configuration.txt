@@ -17,6 +17,8 @@ set nrformats=   "默认八进制"
 set incsearch    "在执行查找前预览第一处匹配"
 set autowrite    "Automatically save before commands like :next and :make
 set fdm=marker   "foldmethod"
+let mapleader = ","
+nnoremap <leader>" viw<esc>bi"<esc>lea"<esc>
 ""
 "statusline"
 ""
@@ -36,7 +38,6 @@ set guioptions-=l
 set guioptions-=L
 set guioptions-=r
 set guioptions-=R
-let mapleader = ","
 
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
