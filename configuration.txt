@@ -160,3 +160,4 @@ iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) {
 iabbrev <buffer> /* /**/<ESC>hi
 
 onormap in( :<c-u>normal! f(vi(<cr>
+"nnoremap <leader>g :execute "grep! -R" . shellescape(expand("<cword>"))."."<cr>
