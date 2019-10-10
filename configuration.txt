@@ -159,4 +159,4 @@ match Todo /<+.\++>/
 iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
 iabbrev <buffer> /* /**/<ESC>hi
 
-
+onormap in( :<c-u>normal! f(vi(<cr>
