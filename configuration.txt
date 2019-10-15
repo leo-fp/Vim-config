@@ -113,6 +113,8 @@ Plugin 'plasticboy/vim-markdown'
 
 Plugin 'suan/vim-instant-markdown'
 
+Plugin 'easymotion/vim-easymotion'
+
 
 
 #快速开关注释
