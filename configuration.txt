@@ -163,12 +163,13 @@ iabbrev <buffer> /* /**/<ESC>hi
 
 onormap in( :<c-u>normal! f(vi(<cr>
 "nnoremap <leader>g :execute "grep! -R" . shellescape(expand("<cword>"))."."<cr>
-setlocal foldmethod=expr
-setlocal foldexpr=GetFold(v:lnum)
 
 "========================================================
 "prototype of new fold method 
 "========================================================
+"setlocal foldmethod=expr
+"setlocal foldexpr=GetFold(v:lnum)
+"
 "function! GetFold(lnum)
 "    "match the blank line"
 "    if getline(a:lnum) =~? '\v^\s*$'    
