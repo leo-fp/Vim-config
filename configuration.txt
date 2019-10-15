@@ -163,3 +163,49 @@ iabbrev <buffer> /* /**/<ESC>hi
 
 onormap in( :<c-u>normal! f(vi(<cr>
 "nnoremap <leader>g :execute "grep! -R" . shellescape(expand("<cword>"))."."<cr>
+setlocal foldmethod=expr
+setlocal foldexpr=GetFold(v:lnum)
+
+"========================================================
+"prototype of new fold method 
+"========================================================
+"function! GetFold(lnum)
+"    "match the blank line"
+"    if getline(a:lnum) =~? '\v^\s*$'    
+"        return '-1'
+"    endif
+"
+"    let this_indent = IndentLevel(a:lnum)
+"    let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
+"
+"    if next_indent == this_indent
+"        return this_indent
+"    elseif next_indent < this_indent
+"        return this_indent
+"    elseif next_indent > this_indent
+"        return '>' . next_indent
+"
+"    return '0'
+"endfunction
+"
+""calculate indent level"
+"function! IndentLevel(lnum)
+"    return indent(a:lnum) / &shiftwidth
+"endfunction
+"
+""find the next none blank line"
+""-2 will return if error has occured"
+"function! NextNonBlankLine(lnum)
+"    let numlines = line('$')
+"    let current = a:lnum + 1
+"
+"    while current <= numlines
+"        if getline(current) =~? '\v\S'
+"            return current
+"        endif
+"
+"        let current += 1
+"    endwhile
+"
+"    return -2
+"endfunction
