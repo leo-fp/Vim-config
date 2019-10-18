@@ -18,7 +18,10 @@ set incsearch    "在执行查找前预览第一处匹配"
 set autowrite    "Automatically save before commands like :next and :make
 set fdm=marker   "foldmethod"
 let mapleader = ","
-nnoremap <leader>" viw<esc>bi"<esc>lea"<esc>
+
+"add quotation marks"
+nnoremap <leader>" viwo<esc>i"<esc>lviw<esc>a"<esc> 
+
 ""
 "statusline"
 ""
