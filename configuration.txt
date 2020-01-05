@@ -47,19 +47,7 @@ inoremap [ []<ESC>i
 inoremap { {<CR>}<ESC>		"花括号自动补全及缩进"
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
-nmap <C-\>g :cs find g <C-R>=expand("")<CR> "definition"
-nmap <C-\>s :cs find s <C-R>=expand("")<CR> "symbol"
-nmap <C-\>t :cs find t <C-R>=expand("")<CR> "string"
-nmap <C-\>d :cs find d <C-R>=expand("")<CR> "callee"
-nmap <C-\>f :cs find f <C-R>=expand("")<CR> "file"
-nmap <C-\>c :cs find c <C-R>=expand("")<CR> "caller"
 nmap <space> viw
-
-"command for loading"
-command Filter call Load("Filter")
-command Servlet call Load("Servlet")
-command DBcon call Load("DBcon")
-command Jdbc call Load("jdbc_ppt")
 
 "括号自动删除"
 function! RemovePairs()
@@ -102,57 +90,8 @@ inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
 inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
 inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
 
-#安装markdown插件
-set nocompatible    
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'vundleVim/vundle.vim'
-
-Plugin 'godlygeek/tabular'
-
-Plugin 'plasticboy/vim-markdown'
-
-Plugin 'suan/vim-instant-markdown'
-
-Plugin 'easymotion/vim-easymotion'
-
-
-
-#快速开关注释
-Plugin 'scrooloose/nerdcommenter'
-
-
-call vundle#end()
 filetype plugin indent on
 filetype plugin on
-
-
-"保存文件自动执行ctags"
-"audocmd BufWritePost * call system("ctags -R")
-
-"color"
-colorscheme solarized
-
-
-"templates VIMHOME is as deep as vimrc
-autocmd BufNewFile * silent! 0r ./VIMHOME/templates/%:e.tpl
-
-
-"load model
-"param: tplmd directory of templates"
-"       tpln  the type of file working on
-"       fn    specific file that will be loaded
-"return: null
-"23:27 23-May-19 by leo
-let b:tplmd = "/etc/vim/VIMHOME/templates/"
-let b:tpln = "CPP"
-function Load(fn) 
-    let b:absolutePath = b:tplmd.b:tpln."/".a:fn.".tpl"
-    exe "-1r ".b:absolutePath
-endfunction
-
 
 "<c-j> fix the next position"
 nnoremap <c-j> /<+.\{-1,}+><cr>c/+>/e<cr>
@@ -160,56 +99,4 @@ nnoremap <c-j> <ESC>/<+.\{-1,}+><cr>c/+>/e<cr>
 "highlight the placeholder"
 match Todo /<+.\++>/
 
-"abbrev"
-iabbrev <buffer> fori for (<+init+>; <+condition+>; <+change+>) { 
-iabbrev <buffer> /* /**/<ESC>hi
-
 onormap in( :<c-u>normal! f(vi(<cr>
-"nnoremap <leader>g :execute "grep! -R" . shellescape(expand("<cword>"))."."<cr>
-
-"========================================================
-"prototype of new fold method 
-"========================================================
-"setlocal foldmethod=expr
-"setlocal foldexpr=GetFold(v:lnum)
-"
-"function! GetFold(lnum)
-"    "match the blank line"
-"    if getline(a:lnum) =~? '\v^\s*$'    
-"        return '-1'
-"    endif
-"
-"    let this_indent = IndentLevel(a:lnum)
-"    let next_indent = IndentLevel(NextNonBlankLine(a:lnum))
-"
-"    if next_indent == this_indent
-"        return this_indent
-"    elseif next_indent < this_indent
-"        return this_indent
-"    elseif next_indent > this_indent
-"        return '>' . next_indent
-"
-"    return '0'
-"endfunction
-"
-""calculate indent level"
-"function! IndentLevel(lnum)
-"    return indent(a:lnum) / &shiftwidth
-"endfunction
-"
-""find the next none blank line"
-""-2 will return if error has occured"
-"function! NextNonBlankLine(lnum)
-"    let numlines = line('$')
-"    let current = a:lnum + 1
-"
-"    while current <= numlines
-"        if getline(current) =~? '\v\S'
-"            return current
-"        endif
-"
-"        let current += 1
-"    endwhile
-"
-"    return -2
-"endfunction
